@@ -15,6 +15,9 @@ class Preset extends LaravelPreset
     {
         static::updatePackages();
         static::updateStyles();
+        static::updateJavascript();
+        static::updateBootstrapping();
+        static::removeNodeModules();
     }
 
     public static function installAuth()
@@ -86,7 +89,6 @@ class Preset extends LaravelPreset
     {
         tap(new Filesystem, function ($filesystem) {
             $filesystem->deleteDirectory(resource_path('sass'));
-            $filesystem->delete(public_path('js/app.js'));
             $filesystem->delete(public_path('css/app.css'));
 
             if (!$filesystem->isDirectory($directory = resource_path('css'))) {
@@ -94,7 +96,28 @@ class Preset extends LaravelPreset
             }
         });
 
-        copy(__DIR__ . '/tailwindcss-stubs/resources/css/app.css', resource_path('css/app.css'));
+        copy(__DIR__ . '/stubs/resources/css/app.css', resource_path('css/app.css'));
     }
+
+    protected static function updateJavascript()
+    {
+        tap(new Filesystem, function ($filesystem) {
+            $filesystem->deleteDirectory(resource_path('js'));
+            $filesystem->delete(public_path('js/app.js'));
+
+            if (!$filesystem->isDirectory($directory = resource_path('js'))) {
+                $filesystem->copyDirectory(__DIR__ . '/stubs/resources/js', resource_path('js'));
+            }
+        });
+    }
+
+    protected static function updateBootstrapping()
+    {
+        copy(__DIR__ . '/stubs/tailwind.config.js', base_path('tailwind.config.js'));
+
+        copy(__DIR__ . '/stubs/webpack.mix.js', base_path('webpack.mix.js'));
+
+    }
+
 
 }
