@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use \Laravel\Ui\Presets\Preset as LaravelPreset;
 use Symfony\Component\Finder\SplFileInfo;
 
-class Preset extends LaravelPreset
+class VuePreset extends LaravelPreset
 {
     public static function install()
     {
@@ -24,6 +24,7 @@ class Preset extends LaravelPreset
     {
         static::scaffoldController();
         static::scaffoldAuth();
+        static::scaffoldViews();
     }
 
     protected static function updatePackageArray(array $packages)
@@ -71,9 +72,11 @@ class Preset extends LaravelPreset
             "Auth::routes();\n\nRoute::get('/home', 'HomeController@index')->name('home');\n\n",
             FILE_APPEND
         );
+    }
 
+    protected static function scaffoldViews() {
         tap(new Filesystem, function ($filesystem) {
-            $filesystem->copyDirectory(__DIR__ . '/stubs/resources/views', resource_path('views'));
+            $filesystem->copyDirectory(__DIR__ . '/stubs/resources/vue/views', resource_path('views'));
 
             collect($filesystem->allFiles(base_path('vendor/laravel/ui/stubs/migrations')))
                 ->each(function (SplFileInfo $file) use ($filesystem) {
@@ -96,7 +99,7 @@ class Preset extends LaravelPreset
             }
         });
 
-        copy(__DIR__ . '/stubs/resources/css/app.css', resource_path('css/app.css'));
+        copy(__DIR__ . '/stubs/resources/vue/css/app.css', resource_path('css/app.css'));
     }
 
     protected static function updateJavascript()
@@ -106,7 +109,7 @@ class Preset extends LaravelPreset
             $filesystem->delete(public_path('js/app.js'));
 
             if (!$filesystem->isDirectory($directory = resource_path('js'))) {
-                $filesystem->copyDirectory(__DIR__ . '/stubs/resources/js', resource_path('js'));
+                $filesystem->copyDirectory(__DIR__ . '/stubs/resources/vue/js', resource_path('js'));
             }
         });
     }

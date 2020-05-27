@@ -17,13 +17,13 @@ class TailwindCssDashboardPresetServiceProvider extends ServiceProvider
     public function boot()
     {
         UiCommand::macro('tailwind-dashboard', function ($command) {
-            Preset::install();
-            $command->info('RTL Tailwind CSS scaffolding installed successfully.');
 
-            if ($command->option('auth')) {
-                Preset::installAuth();
+            if ($command->option('option')[0] == 'vue') {
 
-                $command->info('RTL Tailwind CSS auth scaffolding installed successfully.');
+                VuePreset::install();
+                VuePreset::installAuth();
+
+                $command->info('Vue Tailwind CSS auth scaffolding installed successfully.');
             }
 
             $command->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
