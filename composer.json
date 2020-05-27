@@ -1,6 +1,6 @@
 {
-  "name": "miaababikir/laravel-rtl-tailwind-dashboard-preset",
-  "description": "Laravel RTL tailwind css dashboard preset",
+  "name": "miaababikir/laravel-tailwind-dashboard-preset",
+  "description": "Laravel tailwind css dashboard preset",
   "keywords": [
     "laravel",
     "preset",
@@ -19,13 +19,13 @@
   },
   "autoload": {
     "psr-4": {
-      "Miaababikir\\RtlTailwindCssPreset\\": "src/"
+      "Miaababikir\\TailwindCssDashboardPreset\\": "src/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Miaababikir\\RtlTailwindCssPreset\\RTLTailwindCssPresetServiceProvider"
+        "Miaababikir\\TailwindCssDashboardPreset\\TailwindCssDashboardPresetServiceProvider"
       ]
     }
   }

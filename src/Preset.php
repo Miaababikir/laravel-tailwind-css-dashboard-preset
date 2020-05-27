@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Miaababikir\RtlTailwindCssPreset;
+namespace Miaababikir\TailwindCssDashboardPreset;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;

@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Miaababikir\RtlTailwindCssPreset;
+namespace Miaababikir\TailwindCssDashboardPreset;
 
 
 use Illuminate\Support\ServiceProvider;
 use Laravel\Ui\UiCommand;
 
-class RTLTailwindCssPresetServiceProvider extends ServiceProvider
+class TailwindCssDashboardPresetServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap services.
@@ -16,7 +16,7 @@ class RTLTailwindCssPresetServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        UiCommand::macro('rtltailwind', function ($command) {
+        UiCommand::macro('tailwind-dashboard', function ($command) {
             Preset::install();
             $command->info('RTL Tailwind CSS scaffolding installed successfully.');
 
