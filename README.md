@@ -1,2 +1,2 @@
-# :spark: Laravel tailwind css dashboard preset
+# :fire: Laravel tailwind css dashboard preset
 ## TODO
