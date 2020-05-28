@@ -4,7 +4,7 @@
               v-if="label"
               v-text="label"
         ></span>
-        <input class="form-input bg-gray-200 border-gray-200 focus:border-indigo-400 focus:shadow-none focus:bg-white mt-1 block w-full"
+        <input class="form-input bg-gray-200 border-gray-300 focus:border-indigo-400 focus:shadow-none focus:bg-white mt-1 block w-full"
                :type="type"
                :value="value"
                @input="$emit('input', $event.target.value)"

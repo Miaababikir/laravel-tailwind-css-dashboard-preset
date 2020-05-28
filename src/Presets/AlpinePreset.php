@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Miaababikir\TailwindCssDashboardPreset;
+namespace Miaababikir\TailwindCssDashboardPreset\Presets;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use \Laravel\Ui\Presets\Preset as LaravelPreset;
 use Symfony\Component\Finder\SplFileInfo;
 
-class VuePreset extends LaravelPreset
+class AlpinePreset extends LaravelPreset
 {
     public static function install()
     {
@@ -18,6 +18,7 @@ class VuePreset extends LaravelPreset
         static::updateJavascript();
         static::updateBootstrapping();
         static::removeNodeModules();
+        static::installAuth();
     }
 
     public static function installAuth()
@@ -25,6 +26,7 @@ class VuePreset extends LaravelPreset
         static::scaffoldController();
         static::scaffoldAuth();
         static::scaffoldViews();
+
     }
 
     protected static function updatePackageArray(array $packages)
@@ -34,8 +36,6 @@ class VuePreset extends LaravelPreset
             "cross-env" => "^7.0",
             "laravel-mix" => "^5.0.1",
             "resolve-url-loader" => "^2.3.1",
-            "vue" => "^2.5.17",
-            "vue-template-compiler" => "^2.6.10",
             "@tailwindcss/custom-forms" => "^0.2.1",
             "tailwindcss" => "^1.4.4",
 
@@ -45,6 +45,8 @@ class VuePreset extends LaravelPreset
             'popper.js',
             'laravel-mix',
             'jquery',
+            'sass',
+            'sass-loader'
         ]));
     }
 
@@ -67,6 +69,8 @@ class VuePreset extends LaravelPreset
 
     protected static function scaffoldAuth()
     {
+        file_put_contents(app_path('Http/Controllers/HomeController.php'), static::compileControllerStub());
+        
         file_put_contents(
             base_path('routes/web.php'),
             "Auth::routes();\n\nRoute::get('/home', 'HomeController@index')->name('home');\n\n",
@@ -74,9 +78,10 @@ class VuePreset extends LaravelPreset
         );
     }
 
-    protected static function scaffoldViews() {
+    protected static function scaffoldViews()
+    {
         tap(new Filesystem, function ($filesystem) {
-            $filesystem->copyDirectory(__DIR__ . '/stubs/resources/vue/views', resource_path('views'));
+            $filesystem->copyDirectory(__DIR__ . '/../stubs/resources/alpine/views', resource_path('views'));
 
             collect($filesystem->allFiles(base_path('vendor/laravel/ui/stubs/migrations')))
                 ->each(function (SplFileInfo $file) use ($filesystem) {
@@ -99,7 +104,7 @@ class VuePreset extends LaravelPreset
             }
         });
 
-        copy(__DIR__ . '/stubs/resources/vue/css/app.css', resource_path('css/app.css'));
+        copy(__DIR__ . '/../stubs/resources/alpine/css/app.css', resource_path('css/app.css'));
     }
 
     protected static function updateJavascript()
@@ -109,17 +114,22 @@ class VuePreset extends LaravelPreset
             $filesystem->delete(public_path('js/app.js'));
 
             if (!$filesystem->isDirectory($directory = resource_path('js'))) {
-                $filesystem->copyDirectory(__DIR__ . '/stubs/resources/vue/js', resource_path('js'));
+                $filesystem->copyDirectory(__DIR__ . '/../stubs/resources/alpine/js', resource_path('js'));
             }
         });
     }
 
     protected static function updateBootstrapping()
     {
-        copy(__DIR__ . '/stubs/tailwind.config.js', base_path('tailwind.config.js'));
+        copy(__DIR__ . '/../stubs/tailwind.config.js', base_path('tailwind.config.js'));
 
-        copy(__DIR__ . '/stubs/webpack.mix.js', base_path('webpack.mix.js'));
+        copy(__DIR__ . '/../stubs/webpack.mix.js', base_path('webpack.mix.js'));
 
+    }
+
+    protected static function compileControllerStub()
+    {
+        return file_get_contents(__DIR__.'/../stubs/controllers/HomeController.stub');
     }
 
 
