@@ -2,7 +2,8 @@ module.exports = {
     purge: [],
     theme: {
         fontFamily: {
-            'tajawal': 'Tajawal'
+            'base': 'Inter',
+            // 'base-ar': 'Tajawal' // I love this font for arabic
         },
         extend: {},
     },

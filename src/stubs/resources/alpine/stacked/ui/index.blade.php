@@ -1,50 +1,16 @@
 @extends('layouts.app')
 
 @section('header')
-    <base-header title="UI Kit"></base-header>
+    <header class="bg-white shadow">
+        <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold leading-tight text-gray-900">Home</h1>
+        </div>
+    </header>
 @endsection
 
 @section('content')
 
-    <base-panel class="mt-4">
-        <h2 class="text-2xl font-medium">Steve forms</h2>
-        <div class="mt-4">
-            <div>
-                <div class="flex flex-col sm:flex-row py-8">
-                    <div class="sm:w-1/4">
-                        <h2 class="text-xl">Account details</h2>
-                    </div>
-                    <div class="sm:w-3/4 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <base-input label="Name" placeholder="Name"></base-input>
-                        <base-input type="email" label="Email address" placeholder="Name"></base-input>
-                    </div>
-                </div>
-                <div class="flex py-8 flex-col sm:flex-row border-t border-gray-200">
-                    <div class="sm:w-1/4">
-                        <h2 class="text-xl">Account details</h2>
-                    </div>
-                    <div class="sm:w-3/4 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <base-input label="Name" placeholder="Name"></base-input>
-                        <base-input type="email" label="Email address" placeholder="Name"></base-input>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </base-panel>
-
-    <base-panel class="mt-4">
-        <h2 class="text-2xl font-medium">Casual forms</h2>
-        <div class="mt-4">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <base-input label="Name" placeholder="Name"></base-input>
-                <base-input type="email" label="Email address" placeholder="Name"></base-input>
-                <base-input label="Name" placeholder="Name"></base-input>
-                <base-input type="email" label="Email address" placeholder="Name"></base-input>
-            </div>
-        </div>
-    </base-panel>
-
-    <base-panel class="mt-4">
+    <div class="bg-white p-6 rounded shadow">
         <h2 class="text-2xl font-medium">Tables</h2>
         <div class="mt-4">
             <div class="flex flex-col">
@@ -52,18 +18,22 @@
                     <div
                         class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
                         <table class="min-w-full">
-                            <thead>
+                            <thead class="bg-gray-100">
                             <tr>
-                                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider" style="text-align: start">
+                                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                                    style="text-align: start">
                                     Name
                                 </th>
-                                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider" style="text-align: start">
+                                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                                    style="text-align: start">
                                     Title
                                 </th>
-                                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider" style="text-align: start">
+                                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                                    style="text-align: start">
                                     Status
                                 </th>
-                                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider" style="text-align: start">
+                                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                                    style="text-align: start">
                                     Role
                                 </th>
                                 <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
@@ -136,9 +106,87 @@
                 </div>
             </div>
         </div>
-    </base-panel>
+    </div>
 
-    <base-panel class="mt-4">
+    <div class="bg-white p-6 rounded shadow mt-4">
+        <h2 class="text-2xl font-medium">Steve forms</h2>
+        <div class="mt-4">
+            <div>
+                <div class="flex flex-col sm:flex-row py-8">
+                    <div class="sm:w-1/4">
+                        <h2 class="text-xl">Account details</h2>
+                    </div>
+                    <div class="sm:w-3/4 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <label class="block">
+                            <span class="text-gray-700">Name</span>
+                            <input
+                                class="form-input bg-gray-200 border-gray-300 focus:border-indigo-400 focus:shadow-none focus:bg-white mt-1 block w-full"
+                                type="text">
+                        </label>
+                        <label class="block">
+                            <span class="text-gray-700">Email</span>
+                            <input
+                                class="form-input bg-gray-200 border-gray-300 focus:border-indigo-400 focus:shadow-none focus:bg-white mt-1 block w-full"
+                                type="text">
+                        </label>
+                    </div>
+                </div>
+                <div class="flex py-8 flex-col sm:flex-row border-t border-gray-200">
+                    <div class="sm:w-1/4">
+                        <h2 class="text-xl">Account details</h2>
+                    </div>
+                    <div class="sm:w-3/4 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <label class="block">
+                            <span class="text-gray-700">Name</span>
+                            <input
+                                class="form-input bg-gray-200 border-gray-300 focus:border-indigo-400 focus:shadow-none focus:bg-white mt-1 block w-full"
+                                type="text">
+                        </label>
+                        <label class="block">
+                            <span class="text-gray-700">Email</span>
+                            <input
+                                class="form-input bg-gray-200 border-gray-300 focus:border-indigo-400 focus:shadow-none focus:bg-white mt-1 block w-full"
+                                type="text">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white p-6 rounded shadow mt-4">
+        <h2 class="text-2xl font-medium">Casual forms</h2>
+        <div class="mt-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <label class="block">
+                    <span class="text-gray-700">Name</span>
+                    <input
+                        class="form-input bg-gray-200 border-gray-300 focus:border-indigo-400 focus:shadow-none focus:bg-white mt-1 block w-full"
+                        type="text">
+                </label>
+                <label class="block">
+                    <span class="text-gray-700">Email address</span>
+                    <input
+                        class="form-input bg-gray-200 border-gray-300 focus:border-indigo-400 focus:shadow-none focus:bg-white mt-1 block w-full"
+                        type="text">
+                </label>
+                <label class="block">
+                    <span class="text-gray-700">Name</span>
+                    <input
+                        class="form-input bg-gray-200 border-gray-300 focus:border-indigo-400 focus:shadow-none focus:bg-white mt-1 block w-full"
+                        type="text">
+                </label>
+                <label class="block">
+                    <span class="text-gray-700">Email address</span>
+                    <input
+                        class="form-input bg-gray-200 border-gray-300 focus:border-indigo-400 focus:shadow-none focus:bg-white mt-1 block w-full"
+                        type="text">
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white p-6 rounded shadow mt-4">
         <h2 class="text-2xl font-medium">Buttons</h2>
         <div class="mt-4">
             <button class="px-2 py-1 bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-medium rounded">Primary
@@ -159,6 +207,6 @@
             <button class="px-4 py-2 bg-green-500 hover:bg-green-600 text-white font-medium rounded">Success lg</button>
             <button class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-medium rounded">Danger lg</button>
         </div>
-    </base-panel>
+    </div>
 
 @endsection

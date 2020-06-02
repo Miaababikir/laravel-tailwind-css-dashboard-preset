@@ -1,4 +1,4 @@
-@extends('vue.layouts.app')
+@extends('layouts.app')
 
 @section('header')
     <base-header title="Home"></base-header>

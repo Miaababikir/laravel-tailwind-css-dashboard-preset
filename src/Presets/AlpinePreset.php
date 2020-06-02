@@ -11,8 +11,10 @@ use Symfony\Component\Finder\SplFileInfo;
 
 class AlpinePreset extends LaravelPreset
 {
-    public static function install()
+    static $type;
+    public static function install($type)
     {
+        static::$type = $type;
         static::updatePackages();
         static::updateStyles();
         static::updateJavascript();
@@ -73,7 +75,7 @@ class AlpinePreset extends LaravelPreset
         
         file_put_contents(
             base_path('routes/web.php'),
-            "Auth::routes();\n\nRoute::get('/home', 'HomeController@index')->name('home');\n\n",
+            "Auth::routes();\n\nRoute::get('/home', 'HomeController@index')->name('home');\n\nRoute::view('/ui', 'ui.index');",
             FILE_APPEND
         );
     }
@@ -81,7 +83,7 @@ class AlpinePreset extends LaravelPreset
     protected static function scaffoldViews()
     {
         tap(new Filesystem, function ($filesystem) {
-            $filesystem->copyDirectory(__DIR__ . '/../stubs/resources/alpine/views', resource_path('views'));
+            $filesystem->copyDirectory(__DIR__ . '/../stubs/resources/alpine/' . static::$type, resource_path('views'));
 
             collect($filesystem->allFiles(base_path('vendor/laravel/ui/stubs/migrations')))
                 ->each(function (SplFileInfo $file) use ($filesystem) {

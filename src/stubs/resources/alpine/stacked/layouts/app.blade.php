@@ -10,7 +10,7 @@
     <script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
     <script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
 
-{{--    <script src="{{ mix('js/app.js') }}" defer></script>--}}
+    <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 <body class="bg-gray-200 min-h-screen font-base">
 <div id="app">
