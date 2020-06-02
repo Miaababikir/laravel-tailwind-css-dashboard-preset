@@ -12,6 +12,7 @@ use Symfony\Component\Finder\SplFileInfo;
 class VuePreset extends LaravelPreset
 {
     static $type;
+
     public static function install($type)
     {
         static::$type = $type;
@@ -34,13 +35,11 @@ class VuePreset extends LaravelPreset
     {
         return array_merge([
             "axios" => "^0.19",
-            "cross-env" => "^7.0",
-            "laravel-mix" => "^5.0.1",
-            "resolve-url-loader" => "^2.3.1",
-            "vue" => "^2.5.17",
-            "vue-template-compiler" => "^2.6.10",
+            'resolve-url-loader' => '^2.3.1',
+            'vue' => '^2.5.17',
+            'vue-template-compiler' => '^2.6.10',
             "@tailwindcss/custom-forms" => "^0.2.1",
-            "tailwindcss" => "^1.4.4",
+            "tailwindcss" => "^1.4.4"
 
         ], Arr::except($packages, [
             'bootstrap',
@@ -48,6 +47,8 @@ class VuePreset extends LaravelPreset
             'popper.js',
             'laravel-mix',
             'jquery',
+            "sass",
+            "sass-loader"
         ]));
     }
 
