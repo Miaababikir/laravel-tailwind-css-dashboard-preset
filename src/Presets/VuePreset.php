@@ -45,10 +45,7 @@ class VuePreset extends LaravelPreset
             'bootstrap',
             'bootstrap-sass',
             'popper.js',
-            'laravel-mix',
             'jquery',
-            "sass",
-            "sass-loader"
         ]));
     }
 
