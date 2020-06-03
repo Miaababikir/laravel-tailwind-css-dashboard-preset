@@ -67,9 +67,6 @@ class AlpinePreset extends LaravelPreset
                     app_path('Http/Controllers/Auth/' . Str::replaceLast('.stub', '.php', $file->getFilename()))
                 );
             });
-
-        file_get_contents(__DIR__ . '/../stubs/controllers/HomeController.stub');
-
     }
 
     protected static function scaffoldAuth()

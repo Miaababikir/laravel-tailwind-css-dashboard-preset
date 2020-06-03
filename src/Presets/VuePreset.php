@@ -64,12 +64,12 @@ class VuePreset extends LaravelPreset
                     app_path('Http/Controllers/Auth/' . Str::replaceLast('.stub', '.php', $file->getFilename()))
                 );
             });
-
-        file_get_contents(__DIR__ . '/../stubs/controllers/HomeController.stub');
     }
 
     protected static function scaffoldAuth()
     {
+        file_put_contents(app_path('Http/Controllers/HomeController.php'), static::compileControllerStub());
+
         file_put_contents(
             base_path('routes/web.php'),
             "Auth::routes();\n\nRoute::get('/home', 'HomeController@index')->name('home');\n\nRoute::view('/ui', 'ui.index');",
@@ -124,6 +124,11 @@ class VuePreset extends LaravelPreset
 
         copy(__DIR__ . '/../stubs/webpack.mix.js', base_path('webpack.mix.js'));
 
+    }
+
+    protected static function compileControllerStub()
+    {
+        return file_get_contents(__DIR__.'/../stubs/controllers/HomeController.stub');
     }
 
 
