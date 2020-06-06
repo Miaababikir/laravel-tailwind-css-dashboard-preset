@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('header')
-    <base-header title="UI Kit"></base-header>
-@endsection
-
 @section('content')
 
     <base-panel class="mt-4">
