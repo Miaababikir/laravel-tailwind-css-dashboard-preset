@@ -1,4 +1,6 @@
 # :fire: Laravel tailwind css dashboard preset
+[![Total Downloads](https://poser.pugx.org/miaababikir/laravel-tailwind-dashboard-preset/downloads)](//packagist.org/packages/miaababikir/laravel-tailwind-dashboard-preset) [![Daily Downloads](https://poser.pugx.org/miaababikir/laravel-tailwind-dashboard-preset/d/daily)](//packagist.org/packages/miaababikir/laravel-tailwind-dashboard-preset) [![License](https://poser.pugx.org/miaababikir/laravel-tailwind-dashboard-preset/license)](//packagist.org/packages/miaababikir/laravel-tailwind-dashboard-preset)
+
 A Laravel dashboard front-end scaffolding preset for [Tailwind CSS](https://tailwindcss.com) - Support RTL out of the box.
 
 ## Usage
