@@ -38,7 +38,7 @@ class AlpinePreset extends LaravelPreset
             "laravel-mix" => "^5.0.1",
             "resolve-url-loader" => "^2.3.1",
             "@tailwindcss/custom-forms" => "^0.2.1",
-            "tailwindcss" => "^1.4.4",
+            "tailwindcss" => "^1.8.0",
 
         ], Arr::except($packages, [
             'bootstrap',

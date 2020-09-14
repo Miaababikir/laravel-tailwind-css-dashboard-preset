@@ -38,7 +38,7 @@ class VuePreset extends LaravelPreset
             'vue' => '^2.5.17',
             'vue-template-compiler' => '^2.6.10',
             "@tailwindcss/custom-forms" => "^0.2.1",
-            "tailwindcss" => "^1.4.4"
+            "tailwindcss" => "^1.8.0"
 
         ], Arr::except($packages, [
             'bootstrap',
