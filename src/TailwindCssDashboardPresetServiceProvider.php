@@ -1,17 +1,14 @@
 <?php
 
-
 namespace Miaababikir\TailwindCssDashboardPreset;
 
-
-use Illuminate\Support\ServiceProvider;
 use Laravel\Ui\UiCommand;
+use Illuminate\Support\ServiceProvider;
 use Miaababikir\TailwindCssDashboardPreset\Presets\AlpinePreset;
 use Miaababikir\TailwindCssDashboardPreset\Presets\VuePreset;
 
 class TailwindCssDashboardPresetServiceProvider extends ServiceProvider
 {
-
     private $layouts = ['stacked', 'sidebar'];
 
     /**
@@ -26,14 +23,12 @@ class TailwindCssDashboardPresetServiceProvider extends ServiceProvider
 
             if (in_array($options[1], $this->layouts)) {
                 if ($options[0] == 'vue') {
-
                     VuePreset::install($options[1]);
 
                     $command->info('Vue Tailwind CSS auth scaffolding installed successfully.');
                 }
 
                 if ($options[0] == 'alpine') {
-
                     AlpinePreset::install($options[1]);
 
                     $command->info('Alpine Tailwind CSS auth scaffolding installed successfully.');
@@ -43,7 +38,6 @@ class TailwindCssDashboardPresetServiceProvider extends ServiceProvider
             } else {
                 $command->error('Please choose one of the available layouts [stacked, sidebar]');
             }
-
         });
     }
 }

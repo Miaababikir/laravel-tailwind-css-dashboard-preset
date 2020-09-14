@@ -1,17 +1,17 @@
 <?php
 
-
 namespace Miaababikir\TailwindCssDashboardPreset\Presets;
 
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use \Laravel\Ui\Presets\Preset as LaravelPreset;
+use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Finder\SplFileInfo;
+use \Laravel\Ui\Presets\Preset as LaravelPreset;
 
 class AlpinePreset extends LaravelPreset
 {
-    static $type;
+    public static $type;
+    
     public static function install($type)
     {
         static::$type = $type;
@@ -28,7 +28,6 @@ class AlpinePreset extends LaravelPreset
         static::scaffoldController();
         static::scaffoldAuth();
         static::scaffoldViews();
-
     }
 
     protected static function updatePackageArray(array $packages)
@@ -75,7 +74,7 @@ class AlpinePreset extends LaravelPreset
         
         file_put_contents(
             base_path('routes/web.php'),
-            "Auth::routes();\n\nRoute::get('/home', 'HomeController@index')->name('home');\n\nRoute::view('/ui', 'ui.index');",
+            "Auth::routes();\n\nRoute::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');\n\nRoute::view('/ui', 'ui.index');\n\n",
             FILE_APPEND
         );
     }
@@ -126,13 +125,10 @@ class AlpinePreset extends LaravelPreset
         copy(__DIR__ . '/../stubs/tailwind.config.js', base_path('tailwind.config.js'));
 
         copy(__DIR__ . '/../stubs/webpack.mix.js', base_path('webpack.mix.js'));
-
     }
 
     protected static function compileControllerStub()
     {
         return file_get_contents(__DIR__.'/../stubs/controllers/HomeController.stub');
     }
-
-
 }
