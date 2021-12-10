@@ -1,6 +1,6 @@
 require('./bootstrap');
 
-window.Vue = require('vue');
+import Vue from 'vue';
 
 Vue.component('base-nav', require('./components/UI/BaseNav').default);
 Vue.component('base-header', require('./components/UI/BaseHeader').default);

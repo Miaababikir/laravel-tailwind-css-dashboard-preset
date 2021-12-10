@@ -35,10 +35,10 @@ class AlpinePreset extends LaravelPreset
         return array_merge([
             "axios" => "^0.19",
             "cross-env" => "^7.0",
-            "laravel-mix" => "^5.0.1",
+            "laravel-mix" =>"^6.0.6",
             "resolve-url-loader" => "^2.3.1",
-            "@tailwindcss/custom-forms" => "^0.2.1",
-            "tailwindcss" => "^1.8.0",
+            "@tailwindcss/forms"=> "^0.4.0",
+            "tailwindcss" => "^2.2.19"
 
         ], Arr::except($packages, [
             'bootstrap',

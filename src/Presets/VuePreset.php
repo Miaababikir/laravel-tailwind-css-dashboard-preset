@@ -33,12 +33,13 @@ class VuePreset extends LaravelPreset
     protected static function updatePackageArray(array $packages)
     {
         return array_merge([
-            "axios" => "^0.19",
+            "axios" => "^0.21",
             'resolve-url-loader' => '^2.3.1',
-            'vue' => '^2.5.17',
-            'vue-template-compiler' => '^2.6.10',
-            "@tailwindcss/custom-forms" => "^0.2.1",
-            "tailwindcss" => "^1.8.0"
+            'vue' => '^2.6.12',
+            "laravel-mix" =>"^6.0.6",
+            'vue-template-compiler' => '^2.6.12',
+            "@tailwindcss/forms"=> "^0.4.0",
+            "tailwindcss" => "^2.2.19"
 
         ], Arr::except($packages, [
             'bootstrap',
