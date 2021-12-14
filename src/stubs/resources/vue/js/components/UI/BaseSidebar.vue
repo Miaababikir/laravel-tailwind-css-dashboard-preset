@@ -87,6 +87,41 @@
                         <span class="mx-2 text-gray-300">Reports</span>
                     </a>
                 </li>
+                <!-- Dropdown -->
+                <li @click="dropdownToggle" class="px-2 py-3 hover:bg-gray-900 rounded mt-2">
+                    <a class="flex items-center cursor-pointer">
+                        <svg class="w-6 text-gray-500" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+                        </svg>
+                        <span class="mx-2 text-gray-300">Dropdown</span>
+                        <svg v-if="!dropdownIsOpen" class="fill-current w-3 text-gray-500" version="1.1" id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                            y="0px" viewBox="0 0 491.996 491.996" style="enable-background:new 0 0 491.996 491.996;"
+                            xml:space="preserve">
+                            <path
+                                d="M484.132,124.986l-16.116-16.228c-5.072-5.068-11.82-7.86-19.032-7.86c-7.208,0-13.964,2.792-19.036,7.86l-183.84,183.848L62.056,108.554c-5.064-5.068-11.82-7.856-19.028-7.856s-13.968,2.788-19.036,7.856l-16.12,16.128c-10.496,10.488-10.496,27.572,0,38.06l219.136,219.924c5.064,5.064,11.812,8.632,19.084,8.632h0.084c7.212,0,13.96-3.572,19.024-8.632l218.932-219.328c5.072-5.064,7.856-12.016,7.864-19.224C491.996,136.902,489.204,130.046,484.132,124.986z" />
+                        </svg>
+                        <svg v-else class="fill-current w-3 text-gray-500" version="1.1" id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                            y="0px" viewBox="0 0 491.996 491.996" style="enable-background:new 0 0 491.996 491.996;"
+                            xml:space="preserve">
+                            <path
+                                d="M484.136,328.473L264.988,109.329c-5.064-5.064-11.816-7.844-19.172-7.844c-7.208,0-13.964,2.78-19.02,7.844L7.852,328.265C2.788,333.333,0,340.089,0,347.297c0,7.208,2.784,13.968,7.852,19.032l16.124,16.124c5.064,5.064,11.824,7.86,19.032,7.86s13.964-2.796,19.032-7.86l183.852-183.852l184.056,184.064c5.064,5.06,11.82,7.852,19.032,7.852c7.208,0,13.96-2.792,19.028-7.852l16.128-16.132C494.624,356.041,494.624,338.965,484.136,328.473z" />
+                        </svg>
+                    </a>
+                </li>
+                <li v-if="dropdownIsOpen" class="px-2 py-3 hover:bg-gray-900 rounded mt-2">
+                    <a href="#" class="flex items-center">
+                        <span class="mx-2 text-gray-300">Dropdown 1</span>
+                    </a>
+                </li>
+                <li v-if="dropdownIsOpen" class="px-2 py-3 hover:bg-gray-900 rounded mt-2">
+                    <a href="#" class="flex items-center">
+                        <span class="mx-2 text-gray-300">Dropdown 2</span>
+                    </a>
+                </li>
+                <!-- Dropdown -->
             </ul>
             <div class="border-t border-gray-700 -mx-2 mt-2 md:hidden"></div>
             <ul class="mt-6 md:hidden">
@@ -106,6 +141,7 @@
         name: "BaseSidebar",
         data() {
             return {
+                dropdownIsOpen: false,
                 isOpen: false
             }
         },
@@ -113,6 +149,9 @@
             logout() {
                 axios.post('logout')
                     .then(() => location.reload());
+            },
+            dropdownToggle(){
+                this.dropdownIsOpen = !this.dropdownIsOpen
             }
         }
     }
